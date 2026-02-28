@@ -34,10 +34,10 @@ By digitizing the reporting process, CampusGuard AI reduces hesitation, increase
 ### Technologies/Components Used
 
 **For Software:**
-- Languages used: [e.g., JavaScript, Python, Java]
-- Frameworks used: [e.g., React, Django, Spring Boot]
-- Libraries used: [e.g., axios, pandas, JUnit]
-- Tools used: [e.g., VS Code, Git, Docker]
+- Languages used: [ JavaScript,HTML,CSS]
+- Frameworks used: [Vanilla JavaScript]
+- Libraries used: [Pure fronted implementation]
+- Tools used: [GitHub]
 
 **For Hardware:**
 - Main components: [List main components]
