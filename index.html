@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CampusGuard Pro</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+min-height:100vh;
+background:linear-gradient(135deg,#1a0033,#4b0082,#7b2cbf,#9d4edd);
+background-size:400% 400%;
+animation:gradientMove 12s ease infinite;
+color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+padding:20px;
+}
+
+@keyframes gradientMove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+h1{
+margin-bottom:25px;
+text-align:center;
+}
+
+button{
+padding:12px 20px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+background:linear-gradient(135deg,#c77dff,#9d4edd);
+color:white;
+font-weight:600;
+transition:0.3s;
+}
+
+button:hover{
+transform:translateY(-4px);
+box-shadow:0 10px 25px rgba(0,0,0,0.4);
+}
+
+.container{
+width:100%;
+max-width:1200px;
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(20px);
+padding:25px;
+border-radius:20px;
+box-shadow:0 30px 60px rgba(0,0,0,0.4);
+display:none;
+}
+
+.top-buttons{
+display:flex;
+gap:30px;
+justify-content:center;
+margin-bottom:40px;
+}
+
+input,select,textarea{
+width:100%;
+padding:10px;
+margin:6px 0;
+border-radius:8px;
+border:none;
+}
+
+textarea{height:70px;resize:none;}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:15px;
+background:rgba(255,255,255,0.1);
+}
+
+th,td{
+border:1px solid rgba(255,255,255,0.2);
+padding:8px;
+font-size:13px;
+}
+
+th{
+background:rgba(0,0,0,0.3);
+}
+
+.logout{
+background:#ff4d6d;
+margin-top:15px;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>CampusGuard Pro</h1>
+
+<div class="top-buttons" id="home">
+<button onclick="showStudent()">Student Portal</button>
+<button onclick="showAdmin()">Admin Portal</button>
+</div>
+
+<!-- STUDENT PORTAL -->
+<div class="container" id="studentPortal">
+
+<h2>Student Portal</h2>
+
+<input type="text" id="sName" placeholder="Student Name">
+<input type="text" id="sReg" placeholder="Register Number">
+
+<select id="sIssue">
+<option value="">Select Issue</option>
+<option>Lost Item</option>
+<option>Faculty Issue</option>
+<option>Harassment</option>
+<option>Infrastructure</option>
+<option>Security</option>
+<option>Exam Issue</option>
+<option>Other</option>
+</select>
+
+<textarea id="sDesc" placeholder="Describe Issue"></textarea>
+
+<button onclick="submitComplaint()">Submit Complaint</button>
+<button class="logout" onclick="goHome()">Logout</button>
+
+<h3 style="margin-top:20px;">All Complaints</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Issue</th>
+<th>Priority</th>
+<th>Status</th>
+<th>Admin Note</th>
+<th>Updated</th>
+<th>Resolved</th>
+</tr>
+</thead>
+<tbody id="studentTable"></tbody>
+</table>
+
+</div>
+
+<!-- ADMIN PORTAL -->
+<div class="container" id="adminPortal">
+
+<h2>Admin Portal</h2>
+
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Reg</th>
+<th>Issue</th>
+<th>Priority</th>
+<th>Status</th>
+<th>Admin Note</th>
+<th>Updated</th>
+<th>Resolved</th>
+</tr>
+</thead>
+<tbody id="adminTable"></tbody>
+</table>
+
+<button class="logout" onclick="goHome()">Logout</button>
+
+</div>
+
+<script>
+
+let complaints = JSON.parse(localStorage.getItem("complaints")) || [];
+
+function saveData(){
+localStorage.setItem("complaints",JSON.stringify(complaints));
+}
+
+function goHome(){
+studentPortal.style.display="none";
+adminPortal.style.display="none";
+home.style.display="flex";
+}
+
+function showStudent(){
+home.style.display="none";
+studentPortal.style.display="block";
+renderStudent();
+}
+
+function showAdmin(){
+home.style.display="none";
+adminPortal.style.display="block";
+renderAdmin();
+}
+
+function generateID(){
+return "CG"+Math.floor(Math.random()*100000);
+}
+
+function submitComplaint(){
+
+if(!sName.value || !sReg.value || !sIssue.value || !sDesc.value){
+alert("Fill all fields");
+return;
+}
+
+let obj={
+id:generateID(),
+name:sName.value,
+reg:sReg.value,
+issue:sIssue.value,
+priority:"Medium",
+status:"Pending",
+adminNote:"-",
+updated:new Date().toLocaleString(),
+resolved:"-"
+};
+
+complaints.push(obj);
+saveData();
+
+sName.value="";
+sReg.value="";
+sIssue.value="";
+sDesc.value="";
+
+renderStudent();
+}
+
+function renderStudent(){
+let table=document.getElementById("studentTable");
+table.innerHTML="";
+complaints.forEach(c=>{
+table.innerHTML+=`
+<tr>
+<td>${c.id}</td>
+<td>${c.issue}</td>
+<td>${c.priority}</td>
+<td>${c.status}</td>
+<td>${c.adminNote}</td>
+<td>${c.updated}</td>
+<td>${c.resolved}</td>
+</tr>`;
+});
+}
+
+function renderAdmin(){
+let table=document.getElementById("adminTable");
+table.innerHTML="";
+complaints.forEach((c,index)=>{
+table.innerHTML+=`
+<tr>
+<td>${c.id}</td>
+<td>${c.name}</td>
+<td>${c.reg}</td>
+<td>${c.issue}</td>
+
+<td>
+<select onchange="updatePriority(${index},this.value)">
+<option ${c.priority==="High"?"selected":""}>High</option>
+<option ${c.priority==="Medium"?"selected":""}>Medium</option>
+<option ${c.priority==="Low"?"selected":""}>Low</option>
+</select>
+</td>
+
+<td>
+<select onchange="updateStatus(${index},this.value)">
+<option ${c.status==="Pending"?"selected":""}>Pending</option>
+<option ${c.status==="Escalated"?"selected":""}>Escalated</option>
+<option ${c.status==="Rejected"?"selected":""}>Rejected</option>
+<option ${c.status==="Resolved"?"selected":""}>Resolved</option>
+</select>
+</td>
+
+<td>
+<input value="${c.adminNote}"
+onchange="updateNote(${index},this.value)">
+</td>
+
+<td>${c.updated}</td>
+<td>${c.resolved}</td>
+</tr>`;
+});
+}
+
+function updatePriority(i,val){
+complaints[i].priority=val;
+complaints[i].updated=new Date().toLocaleString();
+saveData();
+renderAdmin();
+renderStudent();
+}
+
+function updateStatus(i,val){
+complaints[i].status=val;
+complaints[i].updated=new Date().toLocaleString();
+
+if(val==="Resolved"){
+complaints[i].resolved=new Date().toLocaleString();
+}
+
+saveData();
+renderAdmin();
+renderStudent();
+}
+
+function updateNote(i,val){
+complaints[i].adminNote=val;
+complaints[i].updated=new Date().toLocaleString();
+saveData();
+renderAdmin();
+renderStudent();
+}
+
+goHome();
+
+</script>
+
+</body>
+</html>

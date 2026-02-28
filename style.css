@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+/* =========================
+   GLOBAL RESET
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* =========================
+   BODY BACKGROUND
+========================= */
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #240046, #3c096c, #7b2cbf, #9d4edd);
+    background-size: 400% 400%;
+    animation: gradientMove 12s ease infinite;
+    color: white;
+}
+
+/* Animated gradient */
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* =========================
+   HEADER
+========================= */
+header {
+    padding: 20px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+/* =========================
+   SECTIONS
+========================= */
+.section {
+    display: none;
+    padding: 25px;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background: #c77dff;
+    color: white;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background: #e0aaff;
+    transform: translateY(-2px);
+}
+
+/* Logout button */
+.logout {
+    background: #ff4d6d;
+}
+
+.logout:hover {
+    background: #ff758f;
+}
+
+/* =========================
+   INPUTS
+========================= */
+input, select, textarea {
+    padding: 8px;
+    border-radius: 6px;
+    border: none;
+    margin: 5px 0;
+    width: 100%;
+}
+
+textarea {
+    height: 70px;
+    resize: none;
+}
+
+/* =========================
+   TABLE CONTAINER
+========================= */
+.table-container {
+    margin-top: 20px;
+    overflow-x: auto;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 15px;
+    border-radius: 12px;
+}
+
+/* =========================
+   TABLE STYLING
+========================= */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+th, td {
+    padding: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: left;
+}
+
+/* =========================
+   STATUS COLORS
+========================= */
+.status-Pending { color: #ffd60a; }
+.status-Escalated { color: #ff6d00; }
+.status-Resolved { color: #70e000; }
+.status-Rejected { color: #ff4d6d; }
+
+/* =========================
+   PRIORITY COLORS
+========================= */
+.priority-High { color: #ff4d6d; }
+.priority-Medium { color: #ffd60a; }
+.priority-Low { color: #70e000; }
+
+/* =========================
+   HOME BUTTON AREA
+========================= */
+.top-buttons {
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* =========================
+   FILTER BAR
+========================= */
+.filter-bar {
+    margin: 10px 0;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+@media (max-width: 768px) {
+    table {
+        font-size: 11px;
+    }
+
+    header {
+        font-size: 20px;
+    }
+}
