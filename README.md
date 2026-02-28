@@ -95,7 +95,7 @@ List the key features of your project:
 *student portal*
 
 ![Screenshot3](<img width="1918" height="1013" alt="screenshot3" src="https://github.com/user-attachments/assets/cf1384b4-6d25-4b5e-b268-26133c7586cc" />
-)
+
 *admin portal*
 
 #### Diagrams
