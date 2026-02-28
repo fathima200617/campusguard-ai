@@ -49,10 +49,10 @@ By digitizing the reporting process, CampusGuard AI reduces hesitation, increase
 ## Features
 
 List the key features of your project:
-- Feature 1: [Description]
-- Feature 2: [Description]
-- Feature 3: [Description]
-- Feature 4: [Description]
+- Feature 1: [EASY INCIDENT REPORTING]
+- Feature 2: [ANONYMOUS REPORTING OPTION]
+- Feature 3: [REAL TIME ACCESSIBILITY]
+- Feature 4: [AI BASED ANALYSIS]
 
 ---
 
