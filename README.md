@@ -91,7 +91,7 @@ List the key features of your project:
 *homw page*
 
 ![Screenshot2](<img width="1918" height="1078" alt="screenshot2" src="https://github.com/user-attachments/assets/db44b243-6318-44a3-8b08-10fad88a723d" />
-)
+
 *student portal*
 
 ![Screenshot3](<img width="1918" height="1013" alt="screenshot3" src="https://github.com/user-attachments/assets/cf1384b4-6d25-4b5e-b268-26133c7586cc" />
