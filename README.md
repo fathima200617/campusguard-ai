@@ -2,27 +2,30 @@
   <img src="./img.png" alt="Project Banner" width="100%">
 </p>
 
-# [Project Name] 🎯
+# [CAMPUSGUARD PRO] 🎯
 
 ## Basic Details
 
-### Team Name: [Name]
+### Team Name: [FATHIMA K S]
 
 ### Team Members
 - Member 1: [Name] - [College]
 - Member 2: [Name] - [College]
 
 ### Hosted Project Link
-[mention your project hosted link here]
+[https://fathima200617.github.io/campusguard-ai/]
 
 ### Project Description
-[2-3 lines about what your project does]
+[CampusGuard AI is a smart AI-based campus safety reporting system.
+It allows students to report incidents easily and securely.
+The system helps improve campus safety and quick response.]
 
 ### The Problem statement
-[What problem are you solving?]
+[Many students face safety issues on campus such as harassment, bullying, unsafe areas, or emergencies. However, they often hesitate to report incidents due to fear, lack of anonymity, or complicated reporting processes. There is no simple, quick, and secure digital platform for reporting campus safety concerns]
 
 ### The Solution
-[How are you solving it?]
+[CampusGuard AI provides a simple, secure, and user-friendly web platform that allows students to report safety incidents quickly and confidentially. The system enables users to submit reports through an easy online form, ensuring accessibility and privacy.
+By digitizing the reporting process, CampusGuard AI reduces hesitation, increases transparency, and helps authorities respond faster to safety concerns. The platform promotes a safer campus environment by encouraging responsible and timely reporting.]
 
 ---
 
@@ -83,14 +86,17 @@ List the key features of your project:
 
 #### Screenshots (Add at least 3)
 
-![Screenshot1](Add screenshot 1 here with proper name)
-*Add caption explaining what this shows*
+![Screenshot1](<img width="1908" height="968" alt="screenshot1" src="https://github.com/user-attachments/assets/1e914078-6aac-4ae9-a2f8-788935ec510d" />
 
-![Screenshot2](Add screenshot 2 here with proper name)
-*Add caption explaining what this shows*
+*homw page*
 
-![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what this shows*
+![Screenshot2](<img width="1918" height="1078" alt="screenshot2" src="https://github.com/user-attachments/assets/db44b243-6318-44a3-8b08-10fad88a723d" />
+)
+*student portal*
+
+![Screenshot3](<img width="1918" height="1013" alt="screenshot3" src="https://github.com/user-attachments/assets/cf1384b4-6d25-4b5e-b268-26133c7586cc" />
+)
+*admin portal*
 
 #### Diagrams
 
